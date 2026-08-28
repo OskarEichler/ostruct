@@ -280,7 +280,7 @@ class OpenStruct
     len = args.length
     if mname = mid[/.*(?==\z)/m]
       if len != 1
-        raise! ArgumentError, "wrong number of arguments (given #{len}, expected 1)", caller(1)
+        raise! ArgumentError, "wrong number of arguments (given #{len}, expected 1)", caller!(1)
       end
       set_ostruct_member_value!(mname, args[0])
     elsif len == 0
@@ -483,6 +483,8 @@ class OpenStruct
     alias_method new_name, method
   end
   # Other builtin private methods we use:
+  alias_method :caller!, :caller
+  private :caller!
   alias_method :raise!, :raise
   private :raise!
 
