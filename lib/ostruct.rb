@@ -426,7 +426,7 @@ class OpenStruct
   #   first_pet == third_pet    # => false
   #
   def ==(other)
-    return false unless other.kind_of?(OpenStruct)
+    return false unless ::OpenStruct === other
     @table == other.table!
   end
 
@@ -436,7 +436,7 @@ class OpenStruct
   # eql?.
   #
   def eql?(other)
-    return false unless other.kind_of?(OpenStruct)
+    return false unless ::OpenStruct === other
     @table.eql?(other.table!)
   end
 
